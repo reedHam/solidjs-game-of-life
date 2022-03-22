@@ -1,0 +1,29 @@
+{
+  "name": "game-of-life",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "wasm-pack build --target web wasm; vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "autoprefixer": "^10.4.2",
+    "cssnano": "^5.1.4",
+    "eslint": "^8.11.0",
+    "eslint-plugin-solid": "^0.4.4",
+    "postcss": "^8.4.8",
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.6.2",
+    "vite": "^2.8.6",
+    "vite-plugin-solid": "^2.2.6",
+    "wasm-pack": "^0.10.2"
+  },
+  "dependencies": {
+    "solid-js": "^1.3.12"
+  }
+}
