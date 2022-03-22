@@ -12,3 +12,7 @@
 
 - PostCSS
 - TailwindCSS
+
+## Game of life logic
+- Rust Wasm
+- Wasm Pack
