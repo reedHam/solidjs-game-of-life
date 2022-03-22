@@ -13,11 +13,13 @@ pub struct Universe {
     width: u32,
     height: u32,
     cells: Vec<Cell>,
+    char1: char,
+    char2: char,
 }
 
 #[wasm_bindgen]
 impl Universe {
-    pub fn new(width: u32, height: u32) -> Universe {
+    pub fn new(width: u32, height: u32, char1: char, char2: char) -> Universe {
         let cells = (0..width * height)
             .map(|i| {
                 if i % 2 == 0 || i % 7 == 0 {
@@ -32,6 +34,8 @@ impl Universe {
             width,
             height,
             cells,
+            char1,
+            char2,
         }
     }
 
@@ -108,7 +112,11 @@ impl fmt::Display for Universe {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         for line in self.cells.as_slice().chunks(self.width as usize) {
             for &cell in line {
-                let symbol = if cell == Cell::Dead { '◻' } else { '◼' };
+                let symbol = if cell == Cell::Dead {
+                    self.char1
+                } else {
+                    self.char2
+                };
                 write!(f, "{}", symbol)?;
             }
             write!(f, "\n")?;
