@@ -48,6 +48,6 @@ jobs:
       - name: commit
         run: |
           # Stage the file, commit and push
-          git add ./dist/*
+          git add -f ./dist/*
           git commit -m "Built by bot"
           git push origin main
