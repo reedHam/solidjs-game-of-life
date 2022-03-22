@@ -26,12 +26,13 @@ jobs:
         with:
           cmd: install
           
-      - name: Compile Wasm 
+      - name: Install wasm pack 
         # You may pin to the exact commit or the version.
         # uses: jetli/wasm-pack-action@f98777369a49686b132a9e8f0fdd59837bf3c3fd
         uses: jetli/wasm-pack-action@v0.3.0
-        with:
-          cmd: /home/runner/.cargo/bin/wasm-pack build --target web wasm
+      
+      - name: Compile wasm
+        run: /home/runner/.cargo/bin/wasm-pack build --target web wasm
       
       - name: Build
         uses: Borales/actions-yarn@v2.3.0
