@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "wasm-pack build --target web wasm; vite build",
+    "build": "yarn wasm-pack build --target web wasm; vite build",
     "serve": "vite preview"
   },
   "license": "MIT",
