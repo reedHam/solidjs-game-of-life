@@ -20,21 +20,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: wasm-pack-action
-        # You may pin to the exact commit or the version.
-        # uses: jetli/wasm-pack-action@f98777369a49686b132a9e8f0fdd59837bf3c3fd
-        uses: jetli/wasm-pack-action@v0.3.0
-
+          
       - name: Install packages
         uses: Borales/actions-yarn@v2.3.0
         with:
           cmd: install
-
+          
+      - name: Compile Wasm 
+        # You may pin to the exact commit or the version.
+        # uses: jetli/wasm-pack-action@f98777369a49686b132a9e8f0fdd59837bf3c3fd
+        uses: jetli/wasm-pack-action@v0.3.0
+        with:
+          cmd: /home/runner/.cargo/bin/wasm-pack build --target web wasm
+      
       - name: Build
         uses: Borales/actions-yarn@v2.3.0
         with:
-          cmd: build
+          cmd: yarn vite build
 
       - name: setup git config
         run: |
